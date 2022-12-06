@@ -1,45 +1,137 @@
-<!-- Please do not change this logo with link -->
+<a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
-[![MCHP](images/microchip.png)](https://www.microchip.com)
+# Analog-to-Digital Converter with Computation and Context (ADCCC) — Differential Reading Using PIC18F56Q71 Microcontroller with MCC Melody
 
-# Update the title for pic18f56q71-cnano-adccc-differential-reading-mplab-mcc here
-
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+This code example demonstrates how to perform a differential coversion using the Analog-to-Digital Coverter with Computation and Context (ADCCC) and visualize the voltage difference of two input channels using the Data Visualizer tool. The application starts with the initialization of the ADCCC and UART peripherals, and then a conversion is performed every 10ms. The conversion result is sent via serial communication using the UART peripheral in the Data Visualizer format, in which a real-time plot is displayed.
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+More details and code examples on the AVR64DD32 can be found at the following links:
+
+- [PIC18F56Q71 Product Page](https://www.microchip.com/en-us/product/PIC18F56Q71)
+- [PIC18F56Q71 Code Examples on GitHub]()
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
-
-- MPLAB® X IDE 6.0.0 or newer [(MPLAB® X IDE 6.0)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic18f56q71-cnano-adccc-differential-reading-mplab-mcc-github)
-- MPLAB® XC8 2.40.0 or newer compiler [(MPLAB® XC8 2.40)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic18f56q71-cnano-adccc-differential-reading-mplab-mcc-github)
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.05 or newer
+- [MPLAB® X IPE](https://www.microchip.com/en-us/tools-resources/production/mplab-integrated-programming-environment) v6.05 or newer
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.40 or newer
+- [PIC18F-Q Series Device Pack](https://packs.download.microchip.com/) v1.15.243 or newer
 
 ## Hardware Used
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- The PIC18F56Q71 Curiosity Nano Development Board is used as a test platform:
+  <br><img src="images/pic18f56q71-curiosity-nano-board.png">
 
-## Setup
+- Curiosity Nano Adapter:
+  <br><img src="images/Curiosity-Nano-Adapter.jpg" height="400">
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+- POT 3 CLICK Board:
+  <br><img src="images/pot-3-click-board.jpg" height="400">
+
+<br>
 
 ## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+To program the Curiosity Nano board with this MPLAB® X project, follow the steps provided in the [How to Program the Curiosity Nano Board](#how-to-program-the-curiosity-nano-board) chapter.<br><br>
+
+## Setup
+
+The following configurations must be made for this project:
+
+- System clock is configured at 64 MHz - ADCRC Oscillator enabled
+- ADCCC:
+  - Input Configuration -> Differential Mode
+  - Result Format -> Right Justify, Two's Complement
+  - VDD - 3.3 V
+  - Clock Selection -> ADCRC
+  - Enable Context 1:
+    - Positive Channel Selection: ANA2
+    - Positive Voltage Reference: VDD
+    - Negative Channel Selection: ANA1
+    - Negative Voltage Reference: VSS
+    - Operating Mode Selection: Basic Mode
+    - Double Sampling
+- UART2:
+  - 115200 baud rate
+  - 8 data bits
+  - no parity bit
+  - 1 Stop bit
+  - RX and TX pins enabled (RB5 and RB4)
+
+| Pin | Configuration  |
+| :-: | :------------: |
+| RA1 |  Analog input  |
+| RA2 |  Analog input  |
+| RB4 | Digital output |
+| RB5 | Digital input  |
+
+<br>
+
+## Demo
+
+To visualize the ADCCC readings in a graphical format, time plot of Data Visualizer is used.
+
+Follow the procedure below to open Graph/Time plot in Data Visualizer.
+
+- Open the Data Visualizer tool, which is available as a plugin in MPLAB X IDE.
+
+- Click on `Connections` -> `Serial Ports`
+
+- Open the COMx Settings window corresponding to the port that your device is connected to. Set the Baud Rate to `115200`.
+
+- Click play to start streaming
+- Click `Variable Streamer` -> `New...`
+
+- Add new variables as shown in the image below and click `Save`.
+  <br><img src="images/New Variable Streamer.jpg">
+
+- Select the source of the plot as COMx port.
+
+- Click `Plot all variables`
+  <br><img src="images/ADCCC_Result_Plot.jpg">
+
+This method determines if the result is positive or negative.
+
+Note: COM port number can be different depending on the availability of port.
+<br>
 
 ## Summary
 
-<!-- Summarize what the example has shown -->
+This code example shows how to configure the ADCCC using the Microchip Code Configurator and demonstrates the use of the peripheral by sending the result via the UART interface and plotting the result using Data Visualizer.
+<br><br>
+[Back to Top](<#analog-to-digital-converter-with-computation-and-context-(adccc)---differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody>)
+<br>
+
+## How to Program the Curiosity Nano Board
+
+This chapter demonstrates how to use the MPLAB® X IDE to program a PIC® device with an Example_Project.X. This is applicable to other projects.
+
+1.  Connect the board to the PC.
+
+2.  Open the Example_Project.X project in MPLAB® X IDE.
+
+3.  Set the Example_Project.X project as main project.
+    <br>Right click the project in the **Projects** tab and click **Set as Main Project**.
+    <br><img src="images/Program_Set_as_Main_Project.PNG" width="600">
+
+4.  Clean and build the Example_Project.X project.
+    <br>Right click the **Example_Project.X** project and select **Clean and Build**.
+    <br><img src="images/Program_Clean_and_Build.PNG" width="600">
+
+5.  Select **PICxxxxx Curiosity Nano** in the Connected Hardware Tool section of the project settings:
+    <br>Right click the project and click **Properties**.
+    <br>Click the arrow under the Connected Hardware Tool.
+    <br>Select **PICxxxxx Curiosity Nano** (click the **SN**), click **Apply** and then click **OK**:
+    <br><img src="images/Program_Tool_Selection.jpg" width="600">
+
+6.  Program the project to the board.
+    <br>Right click the project and click **Make and Program Device**.
+    <br><img src="images/Program_Make_and_Program_Device.PNG" width="600">
+
+<br>
+
+- [Back to Setup](#setup)
+- [Back to Demo](#demo)
+- [Back to Summary](#summary)
+- [Back to Top](<#analog-to-digital-converter-with-computation-and-context-(adccc)---differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody>)
