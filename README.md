@@ -101,8 +101,7 @@ This method determines if the result is positive or negative.
 
 This code example shows how to configure the ADCC with Context Switching using the MPLAB® Code Configurator and demonstrates the use of the peripheral by sending the result via the UART interface and plotting it with Data Visualizer.
 <br><br>
-[Back to Top](<#analog-to-digital-converter-with-computation-and-context-(adccc)---differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody>)
-<br>
+[Back to Top](#analog-to-digital-converter-with-computation-adcc-and-context-switching--differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody)
 
 ## How to Program the Curiosity Nano Board
 
@@ -135,4 +134,4 @@ This chapter demonstrates how to use the MPLAB® X IDE to program a PIC® device
 - [Back to Setup](#setup)
 - [Back to Demo](#demo)
 - [Back to Summary](#summary)
-- [Back to Top](<#analog-to-digital-converter-with-computation-and-context-(adccc)---differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody>)
+- [Back to Top](#analog-to-digital-converter-with-computation-adcc-and-context-switching--differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody)
