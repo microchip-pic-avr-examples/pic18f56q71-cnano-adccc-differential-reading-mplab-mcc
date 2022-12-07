@@ -43,7 +43,7 @@ The following configurations must be made for this project:
 - ADCC with Content Switching:
   - Input Configuration: Differential mode
   - Result Format: Right justified, two's complement
-  - V<sub>DD</sub>: 3.3 V
+  - V<sub>DD</sub>: 3.3V
   - Clock Selection: ADCRC
   - Enable Context 1:
     - Positive Channel Selection: ANA2
