@@ -1,15 +1,15 @@
 <a href="https://www.microchip.com" rel="nofollow"><img src="images/microchip.png" alt="MCHP" width="300"/></a>
 
-# Analog-to-Digital Converter with Computation and Context (ADCCC) — Differential Reading Using PIC18F56Q71 Microcontroller with MCC Melody
+# Analog-to-Digital Converter with Computation (ADCC) and Context Switching — Differential Reading Using PIC18F56Q71 Microcontroller with MCC Melody
 
-This code example demonstrates how to perform a differential coversion using the Analog-to-Digital Coverter with Computation and Context (ADCCC) and visualize the voltage difference of two input channels using the Data Visualizer tool. The application starts with the initialization of the ADCCC and UART peripherals, and then a conversion is performed every 10ms. The conversion result is sent via serial communication using the UART peripheral in the Data Visualizer format, in which a real-time plot is displayed.
+This code example demonstrates how to perform a differential coversion using the Analog-to-Digital Coverter with Computation (ADCC) and Context Switching and visualize the voltage difference of two input channels using the Data Visualizer tool. The application starts with the initialization of the ADCC with Context Switching and UART peripherals, and then a conversion is performed every 10 ms. The conversion result is sent via serial communication using the UART peripheral in the Data Visualizer format, in which a real-time plot is displayed.
 
 ## Related Documentation
 
 More details and code examples on the AVR64DD32 can be found at the following links:
 
 - [PIC18F56Q71 Product Page](https://www.microchip.com/en-us/product/PIC18F56Q71)
-- [PIC18F56Q71 Code Examples on GitHub]()
+- [PIC18F56Q71 Code Examples on GitHub](https://github.com/orgs/microchip-pic-avr-examples/repositories?q=pic18f56q71&type=all&language=&sort=)
 
 ## Software Used
 
@@ -39,23 +39,23 @@ To program the Curiosity Nano board with this MPLAB® X project, follow the step
 
 The following configurations must be made for this project:
 
-- System clock is configured at 64 MHz - ADCRC Oscillator enabled
-- ADCCC:
-  - Input Configuration -> Differential Mode
-  - Result Format -> Right Justify, Two's Complement
-  - VDD - 3.3 V
-  - Clock Selection -> ADCRC
+- System clock is configured at 64 MHz – ADCRC Oscillator enabled
+- ADCC with Content Switching:
+  - Input Configuration: Differential mode
+  - Result Format: Right justified, two's complement
+  - V<sub>DD</sub>: 3.3 V
+  - Clock Selection: ADCRC
   - Enable Context 1:
     - Positive Channel Selection: ANA2
-    - Positive Voltage Reference: VDD
+    - Positive Voltage Reference: V<sub>DD</sub>
     - Negative Channel Selection: ANA1
-    - Negative Voltage Reference: VSS
-    - Operating Mode Selection: Basic Mode
+    - Negative Voltage Reference: V<sub>SS</sub>
+    - Operating Mode Selection: Basic mode
     - Double Sampling
 - UART2:
   - 115200 baud rate
   - 8 data bits
-  - no parity bit
+  - No parity bit
   - 1 Stop bit
   - RX and TX pins enabled (RB5 and RB4)
 
@@ -70,35 +70,36 @@ The following configurations must be made for this project:
 
 ## Demo
 
-To visualize the ADCCC readings in a graphical format, time plot of Data Visualizer is used.
+To visualize the ADCC with Content Switching readings in a graphical format use the Data Visualizer time plot.
 
-Follow the procedure below to open Graph/Time plot in Data Visualizer.
+Follow the procedure below to open the Graph/Time plot in Data Visualizer:
 
-- Open the Data Visualizer tool, which is available as a plugin in MPLAB X IDE.
+- Open the Data Visualizer tool, available as a plugin in MPLAB® X IDE
 
-- Click on `Connections` -> `Serial Ports`
+- Click on **Connections** > **Serial Ports**
 
-- Open the COMx Settings window corresponding to the port that your device is connected to. Set the Baud Rate to `115200`.
+- Open the COMx Settings window corresponding to the port that your device is connected to. Set the Baud Rate to **115200**.
 
-- Click play to start streaming
-- Click `Variable Streamer` -> `New...`
+- Click **Play** to start streaming
 
-- Add new variables as shown in the image below and click `Save`.
+- Click **Variable Streamer** > **New...**
+
+- Add new variables as shown in the image below and click **Save**
   <br><img src="images/New Variable Streamer.jpg">
 
-- Select the source of the plot as COMx port.
+- Select the source of the plot as COMx port
 
-- Click `Plot all variables`
+- Click **Plot all variables**
   <br><img src="images/ADCCC_Result_Plot.jpg">
 
 This method determines if the result is positive or negative.
 
-Note: COM port number can be different depending on the availability of port.
+**Note**: The COM port number can differ depending on the port availability.
 <br>
 
 ## Summary
 
-This code example shows how to configure the ADCCC using the Microchip Code Configurator and demonstrates the use of the peripheral by sending the result via the UART interface and plotting the result using Data Visualizer.
+This code example shows how to configure the ADCC with Context Switching using the MPLAB® Code Configurator and demonstrates the use of the peripheral by sending the result via the UART interface and plotting it with Data Visualizer.
 <br><br>
 [Back to Top](<#analog-to-digital-converter-with-computation-and-context-(adccc)---differential-reading-using-pic18f56q71-microcontroller-with-mcc-melody>)
 <br>
