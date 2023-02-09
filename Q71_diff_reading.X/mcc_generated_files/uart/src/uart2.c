@@ -11,7 +11,7 @@
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -97,7 +97,7 @@ void UART2_Initialize(void)
 
     // Set the UART2 module to the options selected in the user interface.
 
-    //RXB disabled; 
+    //
     U2RXB = 0x0; 
     //TXB disabled; 
     U2TXB = 0x0; 
@@ -117,11 +117,11 @@ void UART2_Initialize(void)
     U2BRGL = 0x89; 
     //BRGH 0; 
     U2BRGH = 0x0; 
-    //STPMD in middle of first Stop bit; TXWRE No error; 
-    U2FIFO = 0x0; 
+    //TXBE empty; STPMD in middle of first Stop bit; TXWRE No error; 
+    U2FIFO = 0x20; 
     //ABDIE disabled; ABDIF Auto-baud not enabled or not complete; WUIF WUE not enabled by software; 
     U2UIR = 0x0; 
-    //TXCIF 0x0; RXFOIF not overflowed; RXBKIF No Break detected; CERIF No Checksum error; ABDOVF Not overflowed; 
+    //TXCIF equal; RXFOIF not overflowed; RXBKIF No Break detected; FERIF no error; CERIF No Checksum error; ABDOVF Not overflowed; PERIF Byte not at top; TXMTIF not empty; 
     U2ERRIR = 0x0; 
     //TXCIE disabled; RXFOIE disabled; RXBKIE disabled; FERIE disabled; CERIE disabled; ABDOVE disabled; PERIE disabled; TXMTIE disabled; 
     U2ERRIE = 0x0; 

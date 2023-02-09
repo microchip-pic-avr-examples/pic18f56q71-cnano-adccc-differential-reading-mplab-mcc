@@ -11,7 +11,7 @@
 */
 
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -31,7 +31,7 @@
     THIS SOFTWARE.
 */
 #include "mcc_generated_files/system/system.h"
-//#include <util.delay.h>
+
 /*
     Main application
 */
@@ -68,7 +68,6 @@ int main(void)
         ADC_StartConversion();
         while(!ADC_IsConversionDone());
         result = ADC_GetConversionResult();
-        //printf("%d \n\r", result);
         Send_DataVisualizer_Data(0x03);
         Send_DataVisualizer_Data(result & 0x00FF);
         Send_DataVisualizer_Data(result >> 8);

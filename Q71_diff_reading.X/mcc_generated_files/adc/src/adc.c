@@ -7,10 +7,10 @@
  * 
  * @brief This is the generated driver implementation file for the ADC driver.
  *
- * @version ADC Driver Version 1.0.0
+ * @version ADC Driver Version 1.0.1
 */
 /*
-© [2022] Microchip Technology Inc. and its subsidiaries.
+© [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -41,6 +41,9 @@
 
 void ADC_Initialize(void)
 {
+    //GO_nDONE undefined; IC differential mode; ADFM right justified, two's compliment; ADCS ADCRC; CSEN disabled; ADCONT disabled; ADON disabled; 
+    ADCON0 = 0x16;
+
     //ADACT disabled; 
     ADACT = 0x0;
 
@@ -68,23 +71,23 @@ void ADC_Initialize(void)
     //CTX 0; CTXSW user content; 
     ADCTX = 0x0;
 
-    //ADLTHL 238; 
-    ADLTHL = 0xEE;
+    //ADLTHL 0; 
+    ADLTHL = 0x0;
 
-    //ADLTHH 193; 
-    ADLTHH = 0xC1;
+    //ADLTHH 0; 
+    ADLTHH = 0x0;
 
-    //ADUTHL 238; 
-    ADUTHL = 0xEE;
+    //ADUTHL 60; 
+    ADUTHL = 0x3C;
 
-    //ADUTHH 193; 
-    ADUTHH = 0xC1;
+    //ADUTHH 24; 
+    ADUTHH = 0x18;
 
-    //ADSTPTL 238; 
-    ADSTPTL = 0xEE;
+    //ADSTPTL 0; 
+    ADSTPTL = 0x0;
 
-    //ADSTPTH 193; 
-    ADSTPTH = 0xC1;
+    //ADSTPTH 0; 
+    ADSTPTH = 0x0;
 
     //ADACCL 0x0; 
     ADACCL = 0x0;
@@ -113,8 +116,8 @@ void ADC_Initialize(void)
     //ADCHS ANA1; 
     ADNCH = 0x1;
 
-    //ADACQL 0; 
-    ADACQL = 0x0;
+    //ADACQL 1; 
+    ADACQL = 0x1;
 
     //ADACQH 0; 
     ADACQH = 0x0;
@@ -128,8 +131,8 @@ void ADC_Initialize(void)
     //ADPREH 0; 
     ADPREH = 0x0;
     
-    //GO_nDONE undefined; IC single ended mode; ADFM left justified, two's compliment; ADCS FOSC; CSEN disabled; ADCONT disabled; ADON disabled; 
-    ADCON0 = 0x0;
+    //Disable continuous operation
+    ADCON0bits.ADCONT = 0;
 
     //ADDSEN enabled; PCSC sampling capacitor and external I/O pin; ADGPOL digital_low; ADIPEN disabled; ADPPOL Vss; 
     ADCON1 = 0x1;
@@ -152,20 +155,20 @@ void ADC_Initialize(void)
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
 
-    // Clear ADC Context-1 Threshold Interrupt Flag
+    //Clear ADC Context-1 Threshold Interrupt Flag
     PIR1bits.ADCH1IF = 0;
 
-    // Clear ADC Context-2 Threshold Interrupt Flag
+    //Clear ADC Context-2 Threshold Interrupt Flag
     PIR1bits.ADCH2IF = 0;
 
-    // Clear ADC Context-3 Threshold Interrupt Flag
+    //Clear ADC Context-3 Threshold Interrupt Flag
     PIR1bits.ADCH3IF = 0;
 
-    // Clear ADC Context-4 Threshold Interrupt Flag
+    //Clear ADC Context-4 Threshold Interrupt Flag
     PIR1bits.ADCH4IF = 0;
 
-    //GO_nDONE undefined; IC differential mode; ADFM right justified, two's compliment; ADCS ADCRC; CSEN disabled; ADCONT disabled; ADON enabled; 
-    ADCON0 = 0x96;
+    //Enable ADC
+    ADCON0bits.ADON = 1;
 }
 
 inline void ADC_SelectContext(adc_context_t context)
