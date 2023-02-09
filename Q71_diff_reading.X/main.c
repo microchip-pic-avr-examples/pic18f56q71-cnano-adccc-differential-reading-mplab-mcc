@@ -42,9 +42,7 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-    int8_t resultHigh, resultLow;
     int16_t result;
-    float conversion;
 
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts 
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts 
