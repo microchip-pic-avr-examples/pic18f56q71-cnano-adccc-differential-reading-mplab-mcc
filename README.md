@@ -6,7 +6,7 @@ This code example demonstrates how to perform a differential coversion using the
 
 ## Related Documentation
 
-More details and code examples on the AVR64DD32 can be found at the following links:
+More details and code examples on the PIC18F56Q71 can be found at the following links:
 
 - [PIC18F56Q71 Product Page](https://www.microchip.com/en-us/product/PIC18F56Q71)
 - [PIC18F56Q71 Code Examples on GitHub](https://github.com/orgs/microchip-pic-avr-examples/repositories?q=pic18f56q71&type=all&language=&sort=)
@@ -16,7 +16,7 @@ More details and code examples on the AVR64DD32 can be found at the following li
 - [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.05 or newer
 - [MPLAB® X IPE](https://www.microchip.com/en-us/tools-resources/production/mplab-integrated-programming-environment) v6.05 or newer
 - [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.40 or newer
-- [PIC18F-Q Series Device Pack](https://packs.download.microchip.com/) v1.15.243 or newer
+- [PIC18F-Q Series Device Pack](https://packs.download.microchip.com/) v1.15.360 or newer
 
 ## Hardware Used
 
@@ -69,6 +69,10 @@ The following configurations must be made for this project:
 <br>
 
 ## Demo
+
+In this example, the ADC reads data from the two potentiometers and displays the result on the serial terminal.
+
+<br><img src="images/potentiometer_cnano.png" width="300">
 
 To visualize the ADCC with Content Switching readings in a graphical format use the Data Visualizer time plot.
 

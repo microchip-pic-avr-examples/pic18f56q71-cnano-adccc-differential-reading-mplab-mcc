@@ -36,7 +36,7 @@
     Main application
 */
 
-void Send_DataVisualizer_Data(char TxData);
+void Send_DataVisualizer_Data(uint16_t TxData);
 
 int main(void)
 {
@@ -76,7 +76,7 @@ int main(void)
     }   
 }
 
-void Send_DataVisualizer_Data(char TxData)
+void Send_DataVisualizer_Data(uint16_t TxData)
 {
     while(!(UART2_IsTxReady()));
     UART2_Write(TxData);      
