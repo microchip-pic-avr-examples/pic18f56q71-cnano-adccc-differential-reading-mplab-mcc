@@ -1,11 +1,11 @@
 /**
- * Interrupt Manager Generated Driver File
+ * Interrupt Manager Generated Driver File.
  *
  * @file interrupt.c
  * 
  * @ingroup interrupt 
  * 
- * @brief This file contains the driver code for Interrupt Manager.
+ * @brief This file contains the API implementation for the Interrupt Manager driver.
  * 
  * @version Interrupt Manager Driver Version 2.12
 */
@@ -59,6 +59,7 @@ void  INTERRUPT_Initialize (void)
 
     GIE = state;
     // Assign peripheral interrupt priority vectors
+    IPR0bits.IOCIP = 1;
 
     // Clear the interrupt flag
     // Set the external interrupt edge detect
@@ -90,14 +91,18 @@ void __interrupt(irq(default),base(8)) Default_ISR()
 {
 }
 
+void __interrupt(irq(IOC), base(8)) IOC_ISR()
+{
+    PIN_MANAGER_IOC();
+}
 
 
 /**
  * @ingroup interrupt
- * @brief This ISR will execute whenever the signal on the INT0 pin will transition to the preconfigured state.
- * @pre Interrupt Manager is initialized.
- * @param void
- * @return void
+ * @brief Executes whenever the signal on the INT0 pin transitions on the selected edge.
+ * @pre INTERRUPT_Initialize() is already called.
+ * @param None.
+ * @return None.
  */
 void __interrupt(irq(INT0),base(8)) INT0_ISR()
 {
@@ -128,10 +133,10 @@ void INT0_DefaultInterruptHandler(void){
 
 /**
  * @ingroup interrupt
- * @brief This ISR will execute whenever the signal on the INT1 pin will transition to the preconfigured state.
- * @pre Interrupt Manager is initialized.
- * @param void
- * @return void
+ * @brief Executes whenever the signal on the INT1 pin transitions on the selected edge.
+ * @pre INTERRUPT_Initialize() is already called.
+ * @param None.
+ * @return None.
  */
 void __interrupt(irq(INT1),base(8)) INT1_ISR()
 {
@@ -162,10 +167,10 @@ void INT1_DefaultInterruptHandler(void){
 
 /**
  * @ingroup interrupt
- * @brief This ISR will execute whenever the signal on the INT2 pin will transition to the preconfigured state.
- * @pre Interrupt Manager is initialized.
- * @param void
- * @return void
+ * @brief Executes whenever the signal on the INT2 pin transitions on the selected edge.
+ * @pre INTERRUPT_Initialize() is already called.
+ * @param None.
+ * @return None.
  */
 void __interrupt(irq(INT2),base(8)) INT2_ISR()
 {

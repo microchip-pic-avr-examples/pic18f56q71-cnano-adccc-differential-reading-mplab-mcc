@@ -13,17 +13,19 @@ More details and code examples on the PIC18F56Q71 can be found at the following 
 
 ## Software Used
 
-- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.05 or newer
-- [MPLAB® X IPE](https://www.microchip.com/en-us/tools-resources/production/mplab-integrated-programming-environment) v6.05 or newer
-- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.40 or newer
-- [PIC18F-Q Series Device Pack](https://packs.download.microchip.com/) v1.15.360 or newer
+- [MPLAB® X IDE](http://www.microchip.com/mplab/mplab-x-ide) v6.10 or newer
+- [MPLAB® XC8](http://www.microchip.com/mplab/compilers) v2.41 or newer
+- [PIC18F-Q Series Device Pack](https://packs.download.microchip.com/) v1.18.389 or newer
+- [MPLAB® Code Configurator](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) v5.3.7 or newer
+- [MPLAB® Code Configurator Melody](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator/melody) v2.5.0 or newer
+- PIC10/PIC12/PIC16/PIC18 Devices Library v5.17.1 or newer
 
 ## Hardware Used
 
-- The PIC18F56Q71 Curiosity Nano Development Board is used as a test platform:
+- The [PIC18F56Q71 Curiosity Nano Development Board](https://www.microchip.com/en-us/development-tool/EV01G21A) is used as a test platform:
   <br><img src="images/pic18f56q71-curiosity-nano-board.png">
 
-- Curiosity Nano Adapter:
+- [Curiosity Nano Adapter](https://www.microchip.com/en-us/development-tool/AC164162):
   <br><img src="images/Curiosity-Nano-Adapter.jpg" height="400">
 
 - POT 3 CLICK Board:
@@ -59,12 +61,12 @@ The following configurations must be made for this project:
   - 1 Stop bit
   - RX and TX pins enabled (RB5 and RB4)
 
-| Pin | Configuration  |
-| :-: | :------------: |
-| RA1 |  Analog input  |
-| RA2 |  Analog input  |
-| RB4 | Digital output |
-| RB5 | Digital input  |
+| Pin      | Configuration  |
+| :-:      | :------------: |
+| RA1      |  Analog input  |
+| RA2      |  Analog input  |
+| RB4 (TX) | Digital output |
+| RB5 (RX) | Digital input  |
 
 <br>
 
@@ -127,7 +129,7 @@ This chapter demonstrates how to use the MPLAB® X IDE to program a PIC® device
     <br>Right click the project and click **Properties**.
     <br>Click the arrow under the Connected Hardware Tool.
     <br>Select **PICxxxxx Curiosity Nano** (click the **SN**), click **Apply** and then click **OK**:
-    <br><img src="images/Program_Tool_Selection.jpg" width="600">
+    <br><img src="images/Program_Tool_Selection.PNG" width="600">
 
 6.  Program the project to the board.
     <br>Right click the project and click **Make and Program Device**.

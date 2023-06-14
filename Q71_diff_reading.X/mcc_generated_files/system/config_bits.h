@@ -5,7 +5,7 @@
  * 
  * @defgroup config_bitsdriver CONFIGBITS Driver 
  * 
- * @brief This is the generated header file for the CONFIGURATION BITS.
+ * @brief This file contains the API prototype for the Configuration Bits driver.
  *
  * @version Driver Version 1.0.0
 */
@@ -33,9 +33,7 @@
 
 #ifndef CONFIG_BITS_H
 #define	CONFIG_BITS_H
-/**
-   Section: Included Files
- */
+
 #include "../system/clock.h"
 
 #endif	/* CONFIG_BITS_H */
