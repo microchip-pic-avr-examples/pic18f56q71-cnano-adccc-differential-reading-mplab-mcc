@@ -82,13 +82,13 @@ Follow the procedure below to open the Graph/Time plot in Data Visualizer:
 
 - Open the Data Visualizer tool, available as a plugin in MPLAB X IDE
 
-- Click on **_Connections_** > **_Serial Ports_**
+- Click on _Connections_>_Serial Ports_
 
 - Open the COMx Settings window corresponding to the port that your device is connected to. Set the Baud Rate to 115200.
 
 - Click **Play** to start streaming
 
-- Click **_Variable Streamers_**>**_New..._**
+- Click _Variable Streamers_>_New..._
 
 - Add new variables as shown in the image below and click **Save**
   <br><img src="images/New Variable Streamer.jpg">
